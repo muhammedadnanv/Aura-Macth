@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraMatch | AI Partner Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Lato', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              mystic: {
+                900: '#0f0c29',
+                800: '#302b63',
+                700: '#24243e',
+                accent: '#00d2ff',
+                glow: '#928dab',
+                shadow: '#2d080a'
+              }
+            },
+            perspective: {
+              '1000': '1000px',
+              '2000': '2000px',
+            },
+            boxShadow: {
+              'neon': '0 0 20px rgba(0, 210, 255, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)',
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              'karmic': '0 0 30px rgba(220, 38, 38, 0.4), inset 0 0 20px rgba(0,0,0,0.8)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'spin-slow': 'spin 8s linear infinite',
+              'spin-slower': 'spin 15s linear infinite',
+              'spin-reverse': 'spin-reverse 12s linear infinite',
+              'spin-reverse-slow': 'spin-reverse 20s linear infinite',
+              'twinkle': 'twinkle 4s ease-in-out infinite',
+              'appear': 'appear 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+              'nebula': 'nebula 20s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              'spin-reverse': {
+                'from': { transform: 'rotate(360deg)' },
+                'to': { transform: 'rotate(0deg)' },
+              },
+              twinkle: {
+                '0%, 100%': { opacity: '0.3', transform: 'scale(0.8)' },
+                '50%': { opacity: '1', transform: 'scale(1.2)' },
+              },
+              appear: {
+                '0%': { opacity: '0', transform: 'scale(0.95) translateY(20px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              nebula: {
+                '0%': { transform: 'translate(0, 0) scale(1)' },
+                '100%': { transform: 'translate(50px, -50px) scale(1.1)' },
+              }
+            }
+          }
+        },
+        plugins: [
+          function({ addUtilities }) {
+            const newUtilities = {
+              '.perspective-1000': {
+                perspective: '1000px',
+              },
+              '.preserve-3d': {
+                'transform-style': 'preserve-3d',
+              },
+              '.backface-hidden': {
+                'backface-visibility': 'hidden',
+              },
+              '.translate-z-10': {
+                transform: 'translateZ(10px)',
+              },
+              '.translate-z-20': {
+                transform: 'translateZ(20px)',
+              },
+              '.translate-z-50': {
+                transform: 'translateZ(50px)',
+              },
+              // Utilities for reduced motion preference
+              '@media (prefers-reduced-motion: reduce)': {
+                '.motion-safe-only': {
+                  animation: 'none !important',
+                  transition: 'none !important',
+                  transform: 'none !important',
+                }
+              }
+            }
+            addUtilities(newUtilities)
+          }
+        ]
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-mystic-900 min-h-screen text-white antialiased overflow-x-hidden font-sans selection:bg-pink-500 selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
